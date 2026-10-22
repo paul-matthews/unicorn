@@ -91,3 +91,11 @@ include(cppmem/micropython)
 
 # Disable build-busting C++ exceptions
 include(micropython-disable-exceptions)
+
+# Cosmic Draw — framebuffer rendering for Cosmic Clock
+if(NOT DEFINED COSMIC_DRAW_DIR)
+    set(COSMIC_DRAW_DIR "${CMAKE_CURRENT_LIST_DIR}/../../../cosmic-clock/firmware/cosmic_draw")
+endif()
+if(EXISTS "${COSMIC_DRAW_DIR}/micropython.cmake")
+    include(${COSMIC_DRAW_DIR}/micropython.cmake)
+endif()
